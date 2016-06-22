@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		<!-- 定义目标bean和bean中的方法  -->
+	<bean id="SpringQtzJob" class="com.cddgg.system.support.quartz.BusinessQuartz" />
+	<bean id="SpringQtzJobMethod"
+		  class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	<property name="targetObject">
+		<ref bean="SpringQtzJob" />
+	</property>
+		<property name="targetMethod">
+			<!-- 方法 -->
+			<value>importOrder</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="SpringQtzJobMethod"></property>
+		<property name="cronExpression" value="0 38 9 * * ?"></property>
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!--所有的调度列表 -->
+				<ref bean="CronTriggerBean" />
+			</list>
+		</property>
+	</bean>
+<!-- 	<bean id="SpringQtzJob" class="com.cddgg.quartz.JobQuartz" />
+	<bean id="LoseSpringQtzJob" class="com.cddgg.quartz.DropBusinessJob" /> -->
+	<!-- <bean id="SpringQtzJobMethod"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="SpringQtzJob" />
+		</property>
+		<property name="targetMethod">  要执行的方法名称
+			<value>updateBusinessStatus</value>
+		</property>
+	</bean> -->
+		<!-- 定义目标bean和bean中的方法  12天未跟进掉落集团库-->
+	<!-- <bean id="SpringQtzJobMethod_2"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="LoseSpringQtzJob" />
+		</property>
+		<property name="targetMethod">  要执行的方法名称
+			<value>dropBusiness</value>
+		</property>
+	</bean> -->
+		<!-- ======================== 调度触发器 ======================== -->
+	<!-- <bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="SpringQtzJobMethod"></property>
+		<property name="cronExpression" value="0 0/10 8,20 * * ?"></property>
+	</bean>
+	<bean id="LoseCronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="SpringQtzJobMethod_2"></property>
+		<property name="cronExpression" value="0 0 4 * * ?"></property>
+	</bean> -->
+
+	<!--调度工厂-->
+	<!-- <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				所有的调度列表
+				<ref bean="CronTriggerBean" />
+				<ref bean="LoseCronTriggerBean" />
+			</list>
+		</property>
+	</bean> -->
+</beans>

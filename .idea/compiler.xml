@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="moox" />
         <module name="virgo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="moox" target="1.7" />
       <module name="virgo" target="1.7" />
     </bytecodeTargetLevel>
   </component>
