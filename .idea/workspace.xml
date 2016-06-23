@@ -1021,7 +1021,7 @@
       <workItem from="1466647497087" duration="6353000" />
       <workItem from="1466654045766" duration="6913000" />
       <workItem from="1466664744426" duration="55000" />
-      <workItem from="1466664867814" duration="4769000" />
+      <workItem from="1466664867814" duration="4780000" />
     </task>
     <task id="LOCAL-00001" summary="更新配置文件">
       <created>1466573686979</created>
@@ -1051,11 +1051,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466669594403</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改配置文件">
+      <created>1466669652794</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1466669652794</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39922000" />
+    <option name="totallyTimeSpent" value="39933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1604" height="886" extended-state="0" />
