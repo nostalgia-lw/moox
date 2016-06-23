@@ -13,7 +13,12 @@
 		http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config/>
     <context:component-scan base-package="com.moox"/>
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+   <!-- <context:property-placeholder location="classpath:jdbc.properties"/>-->
+    <!-- 引入配置文件 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean>
     <!-- 定义druid连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
