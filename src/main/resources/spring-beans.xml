@@ -97,5 +97,5 @@
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 
-   <!-- <import resource="spring-shiro-web.xml"/>-->
+   <import resource="spring-shiro-web.xml"/>
 </beans>

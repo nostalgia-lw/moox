@@ -14,7 +14,7 @@
 		<property name="cacheManager" ref="cacheManager" />
 	</bean>
 	<!--自定义Realm -->
-	<bean id="userRealm" class="com.cddgg.system.shiro.UserRealm">
+	<bean id="userRealm" class="com.moox.system.shiro.UserRealm">
 		<property name="cachingEnabled" value="true" />
 		<property name="authenticationCachingEnabled" value="true" />
 		<property name="authenticationCacheName" value="authenticationCache" />
@@ -33,7 +33,7 @@
 	</bean>
 
 	<!--自定义filterChainDefinitionMap -->
-	<bean id="chainDefinitionSectionMetaSource" class="com.cddgg.system.shiro.ChainDefinitionSectionMetaSource">
+	<bean id="chainDefinitionSectionMetaSource" class="com.moox.system.shiro.ChainDefinitionSectionMetaSource">
 		<property name="filterChainDefinitions">
 			<value>
 				/login.shtml = anon

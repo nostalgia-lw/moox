@@ -3,6 +3,7 @@ package com.moox.system.support.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * 实体父类
@@ -24,6 +25,11 @@ public abstract class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    /**
+     * uuid
+     */
+    @Column(name="uu_id",length = 50)
+    private String uuId = UUID.randomUUID().toString();
     /**
      * 创建时间
      */
@@ -65,13 +71,16 @@ public abstract class BaseEntity implements Serializable {
         return id;
     }
 
-    /**
-     * ID
-     * 
-     * @param id
-     */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUuId() {
+        return uuId;
+    }
+
+    public void setUuId(String uuId) {
+        this.uuId = uuId;
     }
 
     public Date getCreateTime() {
@@ -121,6 +130,4 @@ public abstract class BaseEntity implements Serializable {
     public void setUpdaterName(String updaterName) {
         this.updaterName = updaterName;
     }
-
-
 }

@@ -588,7 +588,7 @@ public class BaseDaoImpl<T> extends HibernateSession implements BaseDao<T> {
 		/**
 		 * 清除时间里的时分秒，只留日期
 		 * 
-		 * @param date
+		 * @param
 		 * @return new date
 		 */
 		private void clearTime(Calendar calendar) {
