@@ -1,7 +1,7 @@
 package com.moox.pattern.factory;
 
 /**
- * 工厂模式
+ * 简单工厂模式
  * Created by Administrator on 2016-06-29.
  */
 public class CarFactory {

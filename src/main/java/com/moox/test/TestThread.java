@@ -6,6 +6,7 @@ package com.moox.test;
 public class TestThread extends  Thread {
     private  String name;
     private  Integer ticketNum =10;
+    public  TestThread(){};
     public  TestThread(String name){
         this.name =name;
     }
@@ -21,11 +22,23 @@ public class TestThread extends  Thread {
 
         }
     }
+    public    void  testSynchroinzed(){
+        try {
+          System.out.println("运行中");
+            Thread.sleep(5000);
+            System.out.println("运行结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
-        TestThread ta =new TestThread("A");
-        TestThread tb =new TestThread("B");
-        ta.start();
-        tb.start();
+        TestThread ta =new TestThread();
+         ta.testSynchroinzed();
+        // ta.testSynchroinzed();
+        TestThread tb =new TestThread();
+        tb.testSynchroinzed();
+        //tb.testSynchroinzed();
+
     }
 }

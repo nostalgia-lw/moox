@@ -1,7 +1,7 @@
 package com.moox.pattern.factory;
 
 /**
- * 多个工厂模式
+ * 简单多个工厂模式
  * Created by Administrator on 2016-06-29.
  */
 public class ManyCarFactory {

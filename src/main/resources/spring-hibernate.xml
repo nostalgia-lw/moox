@@ -11,14 +11,9 @@
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:annotation-config/>
-    <context:component-scan base-package="com.moox"/>
-   <!-- <context:property-placeholder location="classpath:jdbc.properties"/>-->
-    <!-- 引入配置文件 -->
-    <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:jdbc.properties" />
-    </bean>
+    <context:component-scan base-package="com.moox.system"/>
+    <!--引入资源文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <!-- 定义druid连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -96,6 +91,6 @@
         <aop:pointcut id="txPointcut" expression="execution(* com.moox..*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
-
+    <!-- 引入其他配置文件，加载第三方资源-->
    <import resource="spring-shiro-web.xml"/>
 </beans>

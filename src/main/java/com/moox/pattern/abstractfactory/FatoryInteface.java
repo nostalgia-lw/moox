@@ -6,4 +6,5 @@ package com.moox.pattern.abstractfactory;
  */
 public interface FatoryInteface {
     public Car createFactory();
+    public Product productFactory();
 }
